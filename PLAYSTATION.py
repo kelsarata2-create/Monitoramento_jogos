@@ -33,7 +33,7 @@ with sync_playwright() as p:
             sleep(2)
             preco = pagina.get_by_text("R$").first
             novo_preco = float(preco.inner_text().replace('R$', '').replace(',', '.').strip())
-            if novo_preco < 200:
+            if novo_preco < 250:
                 mensagem = f'O preço de {games} esta {novo_preco} na Playstation store, vai comprar?'
                 notificar(mensagem)
             else:
