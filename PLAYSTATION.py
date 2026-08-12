@@ -6,11 +6,6 @@ import os
 TOKEN = os.environ.get("TELEGRAM_TOKEN")
 CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID")
 
-def notificar(mensagem):
-    url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
-    resposta = requests.post(url, data={"chat_id": CHAT_ID, "text": mensagem})
-    print(resposta.status_code, resposta.text)
-
 
 def notificar(mensagem):
     url = f"https://api.telegram.org/bot{TOKEN}/sendMessage"
@@ -38,7 +33,6 @@ with sync_playwright() as p:
             sleep(2)
             preco = pagina.get_by_text("R$").first
             novo_preco = float(preco.inner_text().replace('R$', '').replace(',', '.').strip())
-            print(f'{games}: R$ {novo_preco}')
             if novo_preco < 250:
                 mensagem = f'O preço de {games} esta {novo_preco} na Playstation store, vai comprar?'
                 notificar(mensagem)
@@ -47,9 +41,4 @@ with sync_playwright() as p:
         except:
             mensagem_erro = f'Aconteceu alguma coisa com o {games}, da uma olhada'
             notificar(mensagem_erro)
-
-    '''         PROXIMOS PASSOS:
-    
-    COLOCAR O CODIGO NO GITHUB PARA RODAR A CADA DIA
-    MONTAR UMA PLANILHA COM VARIAÇÃO DE PREÇO/TEMPO
-    FAZER UM GRAFICO COM ESSAS INFORMAÇÕES'''
+            
