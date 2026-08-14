@@ -14,7 +14,7 @@ def notificar(mensagem):
 
 lista_jogos_play = [
     "Assassin’s Creed Shadows", "Assassin's Creed Black Flag Resynced", "Resident Evil Requiem", "Black Myth: Wukong",
-    "DEATH STRANDING 2: ON THE BEACH", "Ghost of Yōtei™",
+    "DEATH STRANDING 2: ON THE BEACH", "Ghost of Yōtei™ Edição Completa",
     "Sekiro™: Shadows Die Twice - Edição Jogo do Ano"
 ]
 
@@ -33,7 +33,7 @@ with sync_playwright() as p:
             sleep(2)
             preco = pagina.get_by_text("R$").first
             novo_preco = float(preco.inner_text().replace('R$', '').replace(',', '.').strip())
-            if novo_preco < 250:
+            if novo_preco < 200:
                 mensagem = f'O preço de {games} esta {novo_preco} na Playstation store, vai comprar?'
                 notificar(mensagem)
             else:
