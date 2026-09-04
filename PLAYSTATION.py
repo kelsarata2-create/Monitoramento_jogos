@@ -13,7 +13,7 @@ def notificar(mensagem):
 
 
 lista_jogos_play = [
-    "Assassin’s Creed Shadows", "Assassin's Creed Black Flag Resynced", "Resident Evil Requiem", "Black Myth: Wukong",
+    "Assassin's Creed Black Flag Resynced", "Resident Evil Requiem", "Black Myth: Wukong",
     "DEATH STRANDING 2: ON THE BEACH", "Ghost of Yōtei™ Edição Completa",
     "Sekiro™: Shadows Die Twice - Edição Jogo do Ano"
 ]
